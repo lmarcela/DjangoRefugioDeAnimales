@@ -30,24 +30,24 @@
 
 7) Para que las app sean reconocidas hay que modificar la variable INSTALLED_APPS de settings.py
 
-	INSTALLED_APPS = [
-		...
-		'apps.adopcion',
-		'apps.mascota',
-	]
+		INSTALLED_APPS = [
+			...
+			'apps.adopcion',
+			'apps.mascota',
+		]
 
 8) Para configurar la bd en settings.py:
 
-	DATABASES = {
-		'default': {
-			'ENGINE': 'django.db.backends.mysql',
-			'NAME': 'refugioDjango',
-			'USER': 'root', 
-			'PASSWORD': 'root', 
-			'HOST': 'localhost',
-			'PORT': 3307,
+		DATABASES = {
+			'default': {
+				'ENGINE': 'django.db.backends.mysql',
+				'NAME': 'refugioDjango',
+				'USER': 'root', 
+				'PASSWORD': 'root', 
+				'HOST': 'localhost',
+				'PORT': 3307,
+			}
 		}
-	}
 
 9) Para configurar el lenguaje en settings.py:
 	
@@ -62,6 +62,7 @@
 	from django.db import models
 
 	# Create your models here.
+
 	class Mascota(models.Model):
 		nombre = models.CharField(max_length=50)
 		sexo = models.CharField(max_length=10)
@@ -106,7 +107,19 @@ Por defecto python crea un id autoincremental para cada modelo pero si quisiera 
 
 	(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
 
-	
+16) Para poder manipular los modelos desde el administrador de django:
+	- se configura el archivo admin.py de cada app de la forma admin.site.register(NombreDelModelo)
+	- Crear un superusuario: manage.py createsuperuser 
+		
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py createsuperuser 
+		NOTA user: marcela; password: abcdmarcela.
+	- Correr el servidor: manage.py runserver (test19) 
+
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py runserver
+
+	- Acceso a http://localhost:8000/admin con los datos del usuario creado
+
+
 DOCUMENTACION RECOMENDADA:
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/many_to_many/
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/one_to_one/
