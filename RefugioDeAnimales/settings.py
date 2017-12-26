@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'RefugioDeAnimales.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'refugio',
+        'NAME': 'refugioDjango',
         'USER': 'root', 
         'PASSWORD': 'root', 
         'HOST': 'localhost',

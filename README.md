@@ -35,7 +35,7 @@ INSTALLED_APPS = [
 	DATABASES = {
 		'default': {
 			'ENGINE': 'django.db.backends.mysql',
-			'NAME': 'refugio',
+			'NAME': 'refugioDjango',
 			'USER': 'root', 
 			'PASSWORD': 'root', 
 			'HOST': 'localhost',
@@ -46,7 +46,10 @@ INSTALLED_APPS = [
 9) Para configurar el lenguaje en settings.py:
 	LANGUAGE_CODE = 'es-co'
 
-10) 
+10) Para migrar la bd se crea una bd vacia de nombre refugioDjango en mysql y luego se ejecuta el comando manage.py migrate:
+	(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
+
+11) 
 
 GIT COMMANDS:
 …or create a new repository on the command line
