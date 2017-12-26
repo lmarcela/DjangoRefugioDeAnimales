@@ -49,7 +49,44 @@ INSTALLED_APPS = [
 10) Para migrar la bd se crea una bd vacia de nombre refugioDjango en mysql y luego se ejecuta el comando manage.py migrate:
 	(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
 
-11) 
+11) Los modelos se escriben en el archivo models.py de la app correspondiente. Para el modelo de mascota:
+	from django.db import models
+
+	# Create your models here.
+	class Mascota(models.Model):
+		nombre = models.CharField(max_length=50)
+		sexo = models.CharField(max_length=10)
+		edad_aproximada = models.IntegerField()
+		fecha_rescate = models.DateField()
+		
+Para el modelo de adopcion:
+	from django.db import models
+
+	# Create your models here.
+
+	class Persona(models.Model):
+		nombre = models.CharField(max_length=50)
+		apellidos = models.CharField(max_length=70)
+		edad = models.IntegerField()
+		telefono = models.CharField(max_length=12)
+		email = models.EmailField()
+		domicilio = models.TextField()
+
+Para saber mas sobre los tipos de dato ver: https://docs.djangoproject.com/en/2.0/ref/models/fields/
+
+Por defecto python crea un id autoincremental para cada modelo pero si quisiera definir uno propio, entonces:
+    folio = models.CharField(max_length=10,primary_key=True)
+
+12) Para hacer las migraciones de los modelos configurados se ejecuta el comando manage.py makemigrations en la raiz del proyecto:
+	(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py makemigrations
+
+13) Para pasar la migracion a la bd se ejecuta el comando manage.py migrate
+(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
+
+14) En mysql crea 2 tablas con la sintaxis nombreApp_modelo:
+	- adopcion_persona
+	- mascota_mascota
+
 
 GIT COMMANDS:
 …or create a new repository on the command line
