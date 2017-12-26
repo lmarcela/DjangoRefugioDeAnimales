@@ -16,6 +16,37 @@
 	El archivo _init_ es el que indica que es un paquete de python
 	Otros archivos son settings, urls y wsgi.
 
+4) Con el fin de organizar las aplicaciones se crea una carpeta llamada apps que contenga todas las aplicaciones. Para que la carpeta sea reconocida como un paquete de python dentro se crea el archivo init (_init_.py).
+
+5) Dentro de apps crear la app para mascota:
+(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales\apps>django-admin.py startapp mascota
+
+6) Dentro de apps crear la app para adopcion:
+(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales\apps>django-admin.py startapp adopcion
+
+7) Para que las app sean reconocidas hay que modificar la variable INSTALLED_APPS de settings.py
+INSTALLED_APPS = [
+    ...
+    'apps.adopcion',
+    'apps.mascota',
+]
+
+8) Para configurar la bd en settings.py:
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.mysql',
+			'NAME': 'refugio',
+			'USER': 'root', 
+			'PASSWORD': 'root', 
+			'HOST': 'localhost',
+			'PORT': 3307,
+		}
+	}
+
+9) Para configurar el lenguaje en settings.py:
+	LANGUAGE_CODE = 'es-co'
+
+10) 
 
 GIT COMMANDS:
 …or create a new repository on the command line
