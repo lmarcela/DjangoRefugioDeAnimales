@@ -200,7 +200,10 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 		]
 	Se recomienda ver la seccion SISTEMA DE PLANTILLAS DE DJANGO.
 
-
+22) Herencia de templates de django.
+- Crear carpeta "templates" en la base del proyecto. Dentro crear la carpeta "base". Dentro de "base" crear el archivo "base.html". En este archivo se definen bloques que pueden modificarse dentro de otros html. Para demostracion de los include se realizo un include de "header.html" en "base.html".
+- Para los templates de la app mascota se creo una carpeta llamada "mascota" dentro de la carpeta "templates". Dentro se hizo la prueba de sobreescribir ciertos bloques.
+- Se modifico el archivo views.py de mascota para poder mostrar el html de "index.html". (render(request,'mascota/index.html'))
 
 # TIPOS DE RELACIONES EN DJANGO:
 
