@@ -1,3 +1,5 @@
+# PASOS
+
 1) Seguir los pasos (1-10) para creacion de ambiente (test19) y activacion del mismo disponibles en README.md de https://github.com/lmarcela/DjangoFirstApp
 2) Empezar un proyecto en el ambiente:
 
@@ -187,15 +189,27 @@ Respuesta: <QuerySet [<Persona: Persona object (1)>]>
 Nuevas url de acceso:
 http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 
+21) Definir el template en la variable TEMPLATES de settings.py:
+		TEMPLATES = [
+			{
+				...
+				'DIRS': [os.path.join(BASE_DIR,'templates')],
+				'APP_DIRS': True,
+				...
+			},
+		]
+	Se recomienda ver la seccion SISTEMA DE PLANTILLAS DE DJANGO.
 
 
-DOCUMENTACION RECOMENDADA:
+
+# TIPOS DE RELACIONES EN DJANGO:
+
+## Documentacion recomendada:
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/many_to_many/
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/one_to_one/
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/many_to_one/
 
-TIPOS DE RELACIONES EN DJANGO:
-
+## Tipos
 - 1 A N: (1 persona puede adoptar mas de una mascota)
 	class Persona(models.Model):
 		atributos...
@@ -220,16 +234,16 @@ TIPOS DE RELACIONES EN DJANGO:
 		vacuna = models.ManyToManyField(Vacuna)
 		atributos...
 
-GIT COMMANDS:
-…or create a new repository on the command line
+# SISTEMA DE PLANTILLAS DE DJANGO
 
-echo "# DjangoRefugioDeAnimales" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/lmarcela/DjangoRefugioDeAnimales.git
-git push -u origin master
-…or push an existing repository from the command line
+El sistema de plantillas de django permite separar la logica de la aplicacion de la parte visual (html). Provee 3 herramientas:
+- Variables: Encerradas entre llaves dobles ({{}}). El contexto es la informacion enviada por la vista al template en forma de un diccionario.
+- Tags (etiquetas): Se encuentran cerrados entre llaves y signos de porcentaje ({% for xxx in yyy %}). Permite: hacer flujos de control (bucle for, sentencia if) de informacion externa del template, cargar archivos estaticos en el template ( {% load staticfiles %} ).
+- Herencia de plantillas: Reduce la duplicacion y redundancia de elementos comunes de los templates como title, header, navbar, footer. Lo que se hace es crear un archivo base que va a contener a todos y en otros templates poder heredarlos con extends. Estos se definen en la variable TEMPLATES de settings.py. Se modifica el DIRS.
 
-git remote add origin https://github.com/lmarcela/DjangoRefugioDeAnimales.git
-git push -u origin master
+# GIT COMMANDS:
+		git init
+		git add .
+		git commit -m "first commit"
+		git remote add origin https://github.com/lmarcela/DjangoRefugioDeAnimales.git
+		git push -u origin master
