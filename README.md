@@ -226,7 +226,49 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 - Referencia a carpeta static en settings.py: 
 	
 		STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
-- Nuevo html para uso de plantilla bootstrap https://bootswatch.com/flatly/ en base.html e index.html (de mascota)
+- Nuevo html para uso de plantilla bootstrap https://bootswatch.com/flatly/ en base.html e index.html (de mascota). css y js de la carpeta static añadidos en base.html.
+
+24) Formulario de crear mascota:
+- configuracion de apps/mascota/urls.py: 
+	
+	path('nuevo/', mascota_view, name='mascota_crear'),
+
+- configuracion de apps/mascota/views.py: 
+
+	def mascota_view(request):
+    if request.method=='POST':
+        form = MascotaForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('index')
+    else:
+        form = MascotaForm()
+    return render(request,'mascota/mascotaForm.html',{'form':form})
+
+- configuracion de apps/mascota/forms.py: fields, labels, widgets.
+- configuracion de templates/mascota/mascotaForm.html: 
+
+		{% extends 'base/base.html' %} 
+
+		{% block content %}
+		<br>
+		<form method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
+
+				<button type="submit">Guardar</button>
+		</form>
+		{% endblock %}
+
+- Modificar el modelo de Persona (apps/adopcion/models.py) para visualizar el nombre y apellido en vez del objeto:
+
+	def __str__(self):
+        return '{}'.format(self.nombre+" "+self.apellidos)
+
+- Modificar el modelo de Vacuna (apps/mascota/models.py) para visualizar el nombre en vez del objeto:
+	
+	def __str__(self):
+        return '{}'.format(self.nombre)
 
 # TIPOS DE RELACIONES EN DJANGO:
 
