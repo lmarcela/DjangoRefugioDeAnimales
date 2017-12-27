@@ -311,7 +311,25 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 		path('editar/<id_mascota>/', mascota_edit, name='mascota_editar'),
 		path('eliminar/<id_mascota>/', mascota_delete, name='mascota_eliminar'),
 
-27) 
+27) App Mascota. Vistas basadas en clases (ListView & CreateView):
+- configuracion de templates/mascota/mascotaList2.html: Modificacion con respecto a mascotaList.html por la obtencion de datos a traves de la clase.
+- configuracion de apps/mascota/views.py: ListView & CreateView
+
+	class MascotaList(ListView):
+		model = Mascota
+		template_name = 'mascota/mascotaList2.html'
+
+	class MascotaCreate(CreateView):
+		model = Mascota
+		form_class = MascotaForm
+		template_name = 'mascota/mascotaForm.html'
+		success_url = reverse_lazy('mascota_listar2')
+
+- configuracion de apps/mascota/urls.py: 
+		
+    	path('nuevo2/', MascotaCreate.as_view(), name='mascota_crear2'),
+    	path('listar2/', MascotaList.as_view(), name='mascota_listar2'),
+
 # TIPOS DE RELACIONES EN DJANGO:
 
 ## Documentacion recomendada:
