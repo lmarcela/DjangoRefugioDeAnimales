@@ -17,3 +17,8 @@ def mascota_view(request):
     else:
         form = MascotaForm()
     return render(request,'mascota/mascotaForm.html',{'form':form})
+
+def mascota_list(request):
+    mascota = Mascota.objects.all()
+    contexto = {'mascotas':mascota}
+    return render(request,'mascota/mascotaList.html',contexto)

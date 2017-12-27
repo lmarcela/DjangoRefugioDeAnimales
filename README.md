@@ -231,19 +231,19 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 24) Formulario de crear mascota:
 - configuracion de apps/mascota/urls.py: 
 	
-	path('nuevo/', mascota_view, name='mascota_crear'),
+		path('nuevo/', mascota_view, name='mascota_crear'),
 
 - configuracion de apps/mascota/views.py: 
 
-	def mascota_view(request):
-    if request.method=='POST':
-        form = MascotaForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return redirect('index')
-    else:
-        form = MascotaForm()
-    return render(request,'mascota/mascotaForm.html',{'form':form})
+		def mascota_view(request):
+		if request.method=='POST':
+			form = MascotaForm(request.POST)
+			if form.is_valid():
+				form.save()
+			return redirect('index')
+		else:
+			form = MascotaForm()
+		return render(request,'mascota/mascotaForm.html',{'form':form})
 
 - configuracion de apps/mascota/forms.py: fields, labels, widgets.
 - configuracion de templates/mascota/mascotaForm.html: 
@@ -262,13 +262,26 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 
 - Modificar el modelo de Persona (apps/adopcion/models.py) para visualizar el nombre y apellido en vez del objeto:
 
-	def __str__(self):
-        return '{}'.format(self.nombre+" "+self.apellidos)
+		def __str__(self):
+			return '{}'.format(self.nombre+" "+self.apellidos)
 
 - Modificar el modelo de Vacuna (apps/mascota/models.py) para visualizar el nombre en vez del objeto:
 	
-	def __str__(self):
-        return '{}'.format(self.nombre)
+		def __str__(self):
+			return '{}'.format(self.nombre)
+
+25) Listar registros de Mascota (vista basada en funciones):
+- configuracion de templates/mascota/mascotaList.html: uso de variables, bloques if, else, for.
+- configuracion de apps/mascota/views.py: 
+
+		def mascota_list(request):
+			mascota = Mascota.objects.all()
+			contexto = {'mascotas':mascota}
+			return render(request,'mascota/mascotaList.html',contexto)
+
+- configuracion de apps/mascota/urls.py: 
+
+    	path('listar/', mascota_list, name='mascota_listar'),
 
 # TIPOS DE RELACIONES EN DJANGO:
 
