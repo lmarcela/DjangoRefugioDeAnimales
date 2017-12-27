@@ -150,36 +150,50 @@
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py shell
 
 - En el shell:
+
 >>from apps.mascota.models import Vacuna, Mascota
+
 >>from apps.adopcion.models import Persona
 
 /*La primer forma de crear un objeto*/
 
 >>Persona.objects.create(nombre="Lina", apellidos="Gomez", edad=34, telefono="867", email="lina@mail.com", domicilio = "cra 867")
+
 >>p = Persona(nombre="Marcela", apellidos="Malaver", edad=22, telefono="878", email="marce@mail.com", domicilio = "cra 69")
 >>p.save()
 
 
 >>m = Mascota(nombre="Kiara", sexo="macho", edad_aproximada=2, fecha_rescate="2017-01-09", persona=p)
+
 >>m.save()
 
 >>v1 = Vacuna(nombre="vacuna 1")
+
 >>v1.save()
+
 >>v2 = Vacuna(nombre="vacuna 2")
+
 >>v2.save()
 
 /*Agregar la llave foranea*/
 
 >>m.vacuna.add(v1,v2)
+
 /*Ya no es necesario llamar al metodo save*/
 
 
 /*Consultas*/
+
 >>Persona.objects.all()
+
 Respuesta: <QuerySet [<Persona: Persona object (1)>, <Persona: Persona object (2)>]>
+
 >>Persona.objects.filter(id=2)
+
 Respuesta: <QuerySet [<Persona: Persona object (2)>]>
+
 >>Persona.objects.filter(nombre__contains="Lina")
+
 Respuesta: <QuerySet [<Persona: Persona object (1)>]>
 
 20) Configurar url y views de las apps. 
@@ -190,6 +204,7 @@ Nuevas url de acceso:
 http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 
 21) Definir el template en la variable TEMPLATES de settings.py:
+
 		TEMPLATES = [
 			{
 				...
@@ -198,12 +213,20 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 				...
 			},
 		]
+
 	Se recomienda ver la seccion SISTEMA DE PLANTILLAS DE DJANGO.
 
 22) Herencia de templates de django.
 - Crear carpeta "templates" en la base del proyecto. Dentro crear la carpeta "base". Dentro de "base" crear el archivo "base.html". En este archivo se definen bloques que pueden modificarse dentro de otros html. Para demostracion de los include se realizo un include de "header.html" en "base.html".
 - Para los templates de la app mascota se creo una carpeta llamada "mascota" dentro de la carpeta "templates". Dentro se hizo la prueba de sobreescribir ciertos bloques.
 - Se modifico el archivo views.py de mascota para poder mostrar el html de "index.html". (render(request,'mascota/index.html'))
+
+23) Configurar archivos estaticos del proyecto:
+- carpeta "static" contiene js y css.
+- Referencia a carpeta static en settings.py: 
+	
+		STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+- Nuevo html para uso de plantilla bootstrap https://bootswatch.com/flatly/ en base.html e index.html (de mascota)
 
 # TIPOS DE RELACIONES EN DJANGO:
 
