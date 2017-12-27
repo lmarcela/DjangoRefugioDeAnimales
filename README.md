@@ -283,6 +283,35 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 
     	path('listar/', mascota_list, name='mascota_listar'),
 
+26) Actualizar y eliminar registros de Mascota (vista basada en funciones):
+- configuracion de templates/mascota/mascotaDelete.html: uso de variables.
+- configuracion de templates/mascota/mascotaList.html: Adicion de acciones editar y eliminar.
+- configuracion de apps/mascota/views.py: 
+
+		def mascota_edit(request,id_mascota):
+			mascota = Mascota.objects.get(id=id_mascota)
+			if request.method=='GET':
+				form = MascotaForm(instance=mascota)
+			else:
+				form = MascotaForm(request.POST,instance=mascota)
+				if form.is_valid():
+					form.save()
+				return redirect('mascota_listar')
+			return render(request,'mascota/mascotaForm.html',{'form':form})
+
+		def mascota_delete(request,id_mascota):
+			mascota = Mascota.objects.get(id=id_mascota)
+			if request.method=='POST':
+				mascota.delete()
+				return redirect('mascota_listar')
+			return render(request,'mascota/mascotaDelete.html',{'mascota':mascota})
+
+- configuracion de apps/mascota/urls.py: 
+
+		path('editar/<id_mascota>/', mascota_edit, name='mascota_editar'),
+		path('eliminar/<id_mascota>/', mascota_delete, name='mascota_eliminar'),
+
+27) 
 # TIPOS DE RELACIONES EN DJANGO:
 
 ## Documentacion recomendada:
