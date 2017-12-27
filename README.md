@@ -87,7 +87,7 @@
 
 	Por defecto python crea un id autoincremental para cada modelo pero si quisiera definir uno propio, entonces:
     
-			folio = models.CharField(max_length=10,primary_key=True)
+		folio = models.CharField(max_length=10,primary_key=True)
 
 12) Para hacer las migraciones de los modelos configurados se ejecuta el comando manage.py makemigrations en la raiz del proyecto:
 	
@@ -111,15 +111,74 @@
 	- se configura el archivo admin.py de cada app de la forma admin.site.register(NombreDelModelo)
 	- Crear un superusuario: manage.py createsuperuser 
 		
-			(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py createsuperuser 
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py createsuperuser 
 			NOTA user: marcela; password: abcdmarcela.
 	- Correr el servidor: manage.py runserver (test19) 
 
-			(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py runserver
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py runserver
 
 	- Acceso a http://localhost:8000/admin con los datos del usuario creado. Probar el registro de una persona, una mascota, una vacuna desde el administrador de django. Si por ejemplo se elimina una mascota automaticamente se borra la relacion que tenia con vacuna.
 
-17)
+17) Modificacion en el modelo Mascota:
+	- Se borro la llave primaria para que funcione con la de defecto. 
+	- Se añade el parametro blank en la relacion a Vacuna
+		
+		class Mascota(models.Model):
+			nombre = models.CharField(max_length=50)
+			sexo = models.CharField(max_length=10)
+			edad_aproximada = models.IntegerField()
+			fecha_rescate = models.DateField()
+			persona = models.ForeignKey(Persona,null=True,blank=True,on_delete=models.CASCADE)
+			vacuna = models.ManyToManyField(Vacuna,blank=True)
+	
+	Para que las migraciones no generen conflicto la manera mas facil es borrar todas las tablas de la base de datos.
+	Borrar todos los archivos 0xxx_initial.py ubicado en \apps\mascota\migrations\.
+	Luego se ejecutan los comandos de migracion:
+
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py makemigrations
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
+
+18) Volver a Crear un superusuario: manage.py createsuperuser 
+		
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py createsuperuser 
+			NOTA user: marcela; password: abcdmarcela.
+
+19) Importar los modelos. Abrir el shell de django: manage.py shell
+
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py shell
+
+- En el shell:
+>>from apps.mascota.models import Vacuna, Mascota
+>>from apps.adopcion.models import Persona
+
+/*La primer forma de crear un objeto*/
+
+>>Persona.objects.create(nombre="Lina", apellidos="Gomez", edad=34, telefono="867", email="lina@mail.com", domicilio = "cra 867")
+>>p = Persona(nombre="Marcela", apellidos="Malaver", edad=22, telefono="878", email="marce@mail.com", domicilio = "cra 69")
+>>p.save()
+
+
+>>m = Mascota(nombre="Kiara", sexo="macho", edad_aproximada=2, fecha_rescate="2017-01-09", persona=p)
+>>m.save()
+
+>>v1 = Vacuna(nombre="vacuna 1")
+>>v1.save()
+>>v2 = Vacuna(nombre="vacuna 2")
+>>v2.save()
+
+/*Agregar la llave foranea*/
+
+>>m.vacuna.add(v1,v2)
+/*Ya no es necesario llamar al metodo save*/
+
+
+/*Consultas*/
+>>Persona.objects.all()
+Respuesta: <QuerySet [<Persona: Persona object (1)>, <Persona: Persona object (2)>]>
+>>Persona.objects.filter(id=2)
+Respuesta: <QuerySet [<Persona: Persona object (2)>]>
+>>Persona.objects.filter(nombre__contains="Lina")
+Respuesta: <QuerySet [<Persona: Persona object (1)>]>
 
 
 DOCUMENTACION RECOMENDADA:
