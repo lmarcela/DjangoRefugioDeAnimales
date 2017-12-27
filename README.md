@@ -180,6 +180,14 @@ Respuesta: <QuerySet [<Persona: Persona object (2)>]>
 >>Persona.objects.filter(nombre__contains="Lina")
 Respuesta: <QuerySet [<Persona: Persona object (1)>]>
 
+20) Configurar url y views de las apps. 
+- Modificar archivo views.py de cada app. Por ahora cada una solamente imprime un texto.
+- Crear archivo urls.py para cada app. Aqui se define la configuracion local.
+- Modificar archivo urls.py del proyecto. Aqui se define la configuracion global.
+Nuevas url de acceso:
+http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
+
+
 
 DOCUMENTACION RECOMENDADA:
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/many_to_many/
