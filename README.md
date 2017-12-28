@@ -429,6 +429,45 @@ Accesos a:
 
 		LOGIN_REDIRECT_URL = reverse_lazy('solicitud_listar')
 - Configuracion de templates/index.html. Formulario de inicio de sesión.
+
+33) Restriccion de urls para usuarios no logueados. Adicion de funcionalidades al menú:
+- Modificacion en RefugioDeAnimales/urls.py. No olvidar 
+from django.contrib.auth.views import login, logout_then_login
+
+		path('accounts/login/',login,kwargs={'template_name': 'index.html'}, name="login"),
+		path('logout/',logout_then_login, name="logout"),
+- Modificacion en apps/adopcion/urls.py: No olvidar from django.contrib.auth.decorators import login_required
+
+		urlpatterns = [
+			path('index/', login_required(index_adopcion)),
+			path('solicitud/listar', login_required(SolicitudList.as_view()), name='solicitud_listar'),
+			path('solicitud/nueva', login_required(SolicitudCreate.as_view()), name='solicitud_crear'),
+			path('solicitud/editar/<pk>/', login_required(SolicitudUpdate.as_view()), name='solicitud_editar'),
+			path('solicitud/eliminar/<pk>/', login_required(SolicitudDelete.as_view()), name='solicitud_eliminar'),
+		]
+
+- Modificacion en apps/mascota/urls.py: No olvidar from django.contrib.auth.decorators import login_required
+
+		urlpatterns = [
+			path('', login_required(index), name='index'),
+			path('nuevo/', login_required(mascota_view), name='mascota_crear'),
+			path('nuevo2/', login_required(MascotaCreate.as_view()), name='mascota_crear2'),
+			path('listar/', login_required(mascota_list), name='mascota_listar'),
+			path('listar2/', login_required(MascotaList.as_view()), name='mascota_listar2'),
+			path('editar/<id_mascota>/', login_required(mascota_edit), name='mascota_editar'),
+			path('editar2/<pk>/', login_required(MascotaUpdate.as_view()), name='mascota_editar2'),
+			path('eliminar/<id_mascota>/', login_required(mascota_delete), name='mascota_eliminar'),
+			path('eliminar2/<pk>/', login_required(MascotaDelete.as_view()), name='mascota_eliminar2'),
+		]
+
+- Modificacion en templates/base/base.html. Adicion de urls a los menus:
+				<a class="dropdown-item" href="{% url 'mascota_crear' %}">Registrar</a>
+				<a class="dropdown-item" href="{% url 'mascota_listar2' %}">Listar</a>
+				<a class="dropdown-item" href="{% url 'solicitud_crear' %}">Solicitar</a>
+				<a class="dropdown-item" href="{% url 'solicitud_listar' %}">Listar solicitudes</a>
+				<a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
+34)
+
 # TIPOS DE RELACIONES EN DJANGO:
 
 ## Documentacion recomendada:

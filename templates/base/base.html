@@ -26,8 +26,8 @@
                         <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="themes">
-                        <a class="dropdown-item" href="#">Registrar</a>
-                        <a class="dropdown-item" href="#">Listar</a>
+                        <a class="dropdown-item" href="{% url 'mascota_crear' %}">Registrar</a>
+                        <a class="dropdown-item" href="{% url 'mascota_listar2' %}">Listar</a>
                     </div>
                 </li>
 
@@ -37,8 +37,8 @@
                         <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="download">
-                        <a class="dropdown-item" href="#">Solicitar</a>
-                        <a class="dropdown-item" href="#">Listar solicitudes</a>
+                        <a class="dropdown-item" href="{% url 'solicitud_crear' %}">Solicitar</a>
+                        <a class="dropdown-item" href="{% url 'solicitud_listar' %}">Listar solicitudes</a>
                     </div>
                 </li>
 
@@ -52,7 +52,7 @@
                         <span class="caret"></span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="download">
-                        <a class="dropdown-item" href="#">Salir</a>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
                     </div>
                 </li>
             </ul>
