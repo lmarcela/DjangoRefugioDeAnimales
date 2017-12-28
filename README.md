@@ -350,7 +350,36 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 		    	
     	path('editar2/<pk>/', MascotaUpdate.as_view(), name='mascota_editar2'),,
     	path('eliminar2/<pk>/', MascotaDelete.as_view(), name='mascota_eliminar2'),
+
+29) CRUD con dos formularios:
+- Class Solicitud en apps/adopcion/models.py:
+
+		class Solicitud(models.Model):
+			persona = models.ForeignKey(Persona, null=True, blank=True,on_delete=models.CASCADE)
+			numero_mascotas = models.IntegerField()
+			razones = models.TextField()
+
+- manage.py makemigrations
+
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py makemigrations
+- manage.py migrate
 		
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
+- Configuracion de apps/adopcion/forms.py: Formulario para Persona y Solicitud
+- Configuracion de apps/adopcion/urls.py:
+
+		path('index/', index_adopcion),
+		path('solicitud/listar', SolicitudList.as_view(), name='solicitud_listar'),
+		path('solicitud/nueva', SolicitudCreate.as_view(), name='solicitud_crear'),
+
+Accesos a:
+
+			http://localhost:8000/adopcion/solicitud/listar
+			http://localhost:8000/adopcion/solicitud/nueva
+			
+- Configuracion de apps/adopcion/views.py: SolicitudList & SolicitudCreate
+- Configuracion de templates/adopcion: solicitudForm.html & solicitudList.html
+
 # TIPOS DE RELACIONES EN DJANGO:
 
 ## Documentacion recomendada:
