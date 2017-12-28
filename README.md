@@ -351,7 +351,7 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
     	path('editar2/<pk>/', MascotaUpdate.as_view(), name='mascota_editar2'),,
     	path('eliminar2/<pk>/', MascotaDelete.as_view(), name='mascota_eliminar2'),
 
-29) CRUD con dos formularios:
+29) CRUD con dos formularios. Primera parte (List & Create):
 - Class Solicitud en apps/adopcion/models.py:
 
 		class Solicitud(models.Model):
@@ -379,6 +379,21 @@ Accesos a:
 			
 - Configuracion de apps/adopcion/views.py: SolicitudList & SolicitudCreate
 - Configuracion de templates/adopcion: solicitudForm.html & solicitudList.html
+
+30) CRUD con dos formularios. Segunda parte (Update & Delete):
+- Configuracion de apps/adopcion/urls.py:
+
+		path('solicitud/editar/<pk>/', SolicitudUpdate.as_view(), name='solicitud_editar'),
+		path('solicitud/eliminar/<pk>/', SolicitudDelete.as_view(), name='solicitud_eliminar'),
+
+Accesos a:
+
+			http://localhost:8000/adopcion/solicitud/editar/1 ("idSolicitud")
+			http://localhost:8000/adopcion/solicitud/eliminar/1 ("idSolicitud")
+			
+- Configuracion de apps/adopcion/views.py: SolicitudUpdate & SolicitudDelete
+- Configuracion de templates/adopcion: solicitudDelete.html
+
 
 # TIPOS DE RELACIONES EN DJANGO:
 
