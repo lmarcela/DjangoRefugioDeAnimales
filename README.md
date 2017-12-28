@@ -420,8 +420,15 @@ Accesos a:
 
 - Configuracion de templates/usuario/usuarioRegistrar.html
 
+32) Crear Login:
+- Configuracion de RefugioDeAnimales/urls.py. No olvidar from django.contrib.auth.views import login
 
+	    path('',login,kwargs={'template_name': 'index.html'}, name="login"),
 
+- Configuracion de RefugioDeAnimales/settings.py: La variable LOGIN_REDIRECT_URL le indica a la app a que pagina redirigirse tan pronto el login es exitoso. No olvidar from django.urls import reverse_lazy
+
+		LOGIN_REDIRECT_URL = reverse_lazy('solicitud_listar')
+- Configuracion de templates/index.html. Formulario de inicio de sesión.
 # TIPOS DE RELACIONES EN DJANGO:
 
 ## Documentacion recomendada:
