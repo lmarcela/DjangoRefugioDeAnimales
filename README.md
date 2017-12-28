@@ -394,6 +394,33 @@ Accesos a:
 - Configuracion de apps/adopcion/views.py: SolicitudUpdate & SolicitudDelete
 - Configuracion de templates/adopcion: solicitudDelete.html
 
+31) Nueva app Usuarios. Crear Registro de usuarios.
+- Dentro de apps crear la app para usuario:django-admin.py startapp usuario
+
+ 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales\apps>django-admin.py startapp usuario
+
+- Añadir la app en RefugioDeAnimales/settings.py :
+		
+		INSTALLED_APPS = [
+			...
+			'apps.usuario',
+		]
+- Configuracion de apps/usuario/urls.py:
+	
+    	path('registrar/', RegistroUsuario.as_view(), name='usuario_registrar'),
+
+
+- Configuracion de apps/usuario/forms.py: fields and labels
+
+- Configuracion de apps/usuario/views.py: RegistroUsuario(CreateView).
+
+- Configuracion de RefugioDeAnimales/urls.py:
+
+    	path('usuario/', include('apps.usuario.urls'),name="usuario"),
+
+- Configuracion de templates/usuario/usuarioRegistrar.html
+
+
 
 # TIPOS DE RELACIONES EN DJANGO:
 
