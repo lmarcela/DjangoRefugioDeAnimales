@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.urls import reverse_lazy
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from apps.mascota.forms import MascotaForm
 from apps.mascota.models import Mascota
@@ -52,3 +52,15 @@ class MascotaCreate(CreateView):
     form_class = MascotaForm
     template_name = 'mascota/mascotaForm.html'
     success_url = reverse_lazy('mascota_listar2')
+
+class MascotaUpdate(UpdateView):
+    model = Mascota
+    form_class = MascotaForm
+    template_name = 'mascota/mascotaForm.html'
+    success_url = reverse_lazy('mascota_listar2')
+
+class MascotaDelete(DeleteView):
+    model = Mascota
+    template_name = 'mascota/mascotaDelete2.html'
+    success_url = reverse_lazy('mascota_listar2')
+
