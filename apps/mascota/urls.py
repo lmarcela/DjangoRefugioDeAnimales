@@ -2,7 +2,7 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.contrib.auth.decorators import login_required
 
-from apps.mascota.views import index, mascota_view, mascota_list, mascota_edit, mascota_delete, MascotaList, MascotaCreate, MascotaUpdate, MascotaDelete
+from apps.mascota.views import index, mascota_view, mascota_list, mascota_edit, mascota_delete, MascotaList, MascotaCreate, MascotaUpdate, MascotaDelete, listado
 
 urlpatterns = [
     path('', login_required(index), name='index'),
@@ -14,4 +14,5 @@ urlpatterns = [
     path('editar2/<pk>/', login_required(MascotaUpdate.as_view()), name='mascota_editar2'),
     path('eliminar/<id_mascota>/', login_required(mascota_delete), name='mascota_eliminar'),
     path('eliminar2/<pk>/', login_required(MascotaDelete.as_view()), name='mascota_eliminar2'),
+    path('listado/', login_required(listado), name='listado'),
 ]

@@ -504,7 +504,25 @@ from django.contrib.auth.views import login, logout_then_login
 		templates/passwordReset/passwordResetEmail.html
 		templates/passwordReset/passwordResetForm.html
 
-35) 
+35) Serializar objetos de los modelos para posteriormente poder utilizarlos como servicio web:
+- apps/mascota/views.py: No olvidar from django.core import serializers:
+
+		def listado(request):
+			lista = serializers.serialize('json', Mascota.objects.all())
+			return HttpResponse(lista, content_type='application/json')
+- apps/mascota/urls.py:	
+		
+    	path('listado/', login_required(listado), name='listado'),
+
+- apps/usuario/urls.py:
+
+    	path('listado/', login_required(listadousuarios), name='usuario_listado'),
+- apps/usuario/views.py:
+
+		def listadousuarios(request):
+			lista = serializers.serialize('json', User.objects.all(), fields=['username', 'first_name'])
+			return HttpResponse(lista, content_type='application/json')
+
 # TIPOS DE RELACIONES EN DJANGO:
 
 ## Documentacion recomendada:

@@ -1,10 +1,17 @@
 from django.shortcuts import render
+from django.core import serializers
+from django.http import HttpResponse
+
 from django.contrib.auth.models import User
 # from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
 
 from apps.usuario.forms import RegistroForm
+
+def listadousuarios(request):
+	lista = serializers.serialize('json', User.objects.all(), fields=['username', 'first_name'])
+	return HttpResponse(lista, content_type='application/json')
 
 class RegistroUsuario(CreateView):
 	model = User
