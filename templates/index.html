@@ -37,4 +37,7 @@ Mascotas
 </form>
 
 
+<a href="http://{{ request.get_host }}/admin">Ir al Administrador de Django</a>
+<br>
+<a href="{% url 'usuario_registrar' %}">Ir a Registrar usuario</a>
 {% endblock %}

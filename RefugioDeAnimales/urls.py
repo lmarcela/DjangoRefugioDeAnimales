@@ -23,6 +23,7 @@ urlpatterns = [
     path('adopcion/', include('apps.adopcion.urls'),name="adopcion"),
     path('usuario/', include('apps.usuario.urls'),name="usuario"),
     path('accounts/login/',login,kwargs={'template_name': 'index.html'}, name="login"),
+    path('',login,kwargs={'template_name': 'index.html'}, name="login"),
     path('logout/',logout_then_login, name="logout"),
 
     #passwordResetPaths

@@ -42,6 +42,19 @@
                     </div>
                 </li>
 
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Otros
+                        <span class="caret"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="download">
+                        <a class="dropdown-item" href="{% url 'usuario_registrar' %}">Registrar usuario</a>
+                        <a class="dropdown-item" href="{% url 'usuario_listado' %}" target="_blank">Listado de usuarios</a>
+                        <a class="dropdown-item" href="{% url 'api' %}" target="_blank">UserAPI</a>
+                        <a class="dropdown-item" href="{% url 'listado' %}" target="_blank">Listado de mascotas</a>
+                    </div>
+                </li>
+
             </ul>
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">

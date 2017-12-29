@@ -575,8 +575,27 @@ Código:
 				model = User
 				fields = ('first_name', 'email')
 
+38) Modificaciones adicionales:
+- RefugioDeAnimales/urls.py. Añadir:  
+    
+		path('',login,kwargs={'template_name': 'index.html'}, name="login"),
+	Con el fin de acceder al login desde la direccion base del servidor (http://localhost:8000) y no solo desde http://localhost:8000/accounts/login/
 
-#LINKS RECOMENDADOS:
+- apps/mascota/views.py: Listar mascotas por orden de id.
+- templates/base/base.html: Añadir url para registrar usuario, listado de usuarios (json), UserAPI (json), listado de mascotas (json).
+
+		<a class="dropdown-item" href="{% url 'usuario_registrar' %}">Registrar usuario</a>
+		<a class="dropdown-item" href="{% url 'usuario_listado' %}" target="_blank">Listado de usuarios</a>
+		<a class="dropdown-item" href="{% url 'api' %}" target="_blank">UserAPI</a>
+		<a class="dropdown-item" href="{% url 'listado' %}" target="_blank">Listado de mascotas</a>
+
+- templates/index.html. Añadir url para Ir al Administrador de Django e Ir a Registrar usuario
+
+		<a href="http://{{ request.get_host }}/admin">Ir al Administrador de Django</a>
+		<br>
+		<a href="{% url 'usuario_registrar' %}">Ir a Registrar usuario</a>
+		
+# LINKS RECOMENDADOS:
 - paginación: https://docs.djangoproject.com/en/2.0/topics/pagination/
 - Django Restframework: http://www.django-rest-framework.org
 

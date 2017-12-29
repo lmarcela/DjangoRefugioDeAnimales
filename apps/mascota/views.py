@@ -10,7 +10,7 @@ from apps.mascota.models import Mascota
 # Views
 
 def listado(request):
-	lista = serializers.serialize('json', Mascota.objects.all())
+	lista = serializers.serialize('json', Mascota.objects.all().order_by('id'))
 	return HttpResponse(lista, content_type='application/json')
 
 def index(request):
@@ -52,7 +52,8 @@ def mascota_delete(request,id_mascota):
 class MascotaList(ListView):
     model = Mascota
     template_name = 'mascota/mascotaList2.html'
-    paginate_by = 5
+    paginate_by = 5    
+    ordering = ['id']
 
 class MascotaCreate(CreateView):
     model = Mascota
