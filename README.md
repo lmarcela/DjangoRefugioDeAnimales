@@ -538,6 +538,47 @@ from django.contrib.auth.views import login, logout_then_login
 
 - templates/mascota/mascotaList2.html: Se configuraron 3 estilos de paginacion. El primero funciona con los botones previous y next. El segundo muestra first, previous, el numero de pagina actual, next y last. El tercero muestra first, numeros de pagina y last.
 
+37) Uso de Django Restframework (ModelSerializer -  Django Restframework es un paquete que facilita la creacion de APIs):
+- Instalar Django Restframework: pip install djangorestframework
+		
+		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>pip install djangorestframework
+- apps/usuario/urls.py:
+
+    	path('api/', login_required(UserAPI.as_view()), name='api'),
+- apps/usuario/views.py. No olvidar: 
+
+		import json
+		from rest_framework.views import APIView
+		from apps.usuario.serializers import UserSerializer
+		
+Código:
+
+		class UserAPI(APIView):
+			serializer = UserSerializer
+
+			def get(self, request, format=None):
+				lista = User.objects.all()
+				response = self.serializer(lista, many=True)
+
+				return HttpResponse(json.dumps(response.data), content_type='application/json')
+
+- apps/usuario/serializers.py:
+
+		from rest_framework.serializers import ModelSerializer
+
+		from django.contrib.auth.models import User
+
+
+		class UserSerializer(ModelSerializer):
+
+			class Meta:
+				model = User
+				fields = ('first_name', 'email')
+
+
+#LINKS RECOMENDADOS:
+- paginación: https://docs.djangoproject.com/en/2.0/topics/pagination/
+- Django Restframework: http://www.django-rest-framework.org
 
 # TIPOS DE RELACIONES EN DJANGO:
 
