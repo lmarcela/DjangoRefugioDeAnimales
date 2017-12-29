@@ -461,13 +461,50 @@ from django.contrib.auth.views import login, logout_then_login
 		]
 
 - Modificacion en templates/base/base.html. Adicion de urls a los menus:
-				<a class="dropdown-item" href="{% url 'mascota_crear' %}">Registrar</a>
-				<a class="dropdown-item" href="{% url 'mascota_listar2' %}">Listar</a>
-				<a class="dropdown-item" href="{% url 'solicitud_crear' %}">Solicitar</a>
-				<a class="dropdown-item" href="{% url 'solicitud_listar' %}">Listar solicitudes</a>
-				<a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
-34)
 
+		<a class="dropdown-item" href="{% url 'mascota_crear' %}">Registrar</a>
+		<a class="dropdown-item" href="{% url 'mascota_crear' %}">Registrar</a>
+		<a class="dropdown-item" href="{% url 'mascota_listar2' %}">Listar</a>
+		<a class="dropdown-item" href="{% url 'solicitud_crear' %}">Solicitar</a>
+		<a class="dropdown-item" href="{% url 'solicitud_listar' %}">Listar solicitudes</a>
+		<a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
+
+34) Recuperar contraseña por correo.
+- En el correo de gmail activar el acceso de aplicaciones menos seguras en: https://myaccount.google.com/security (Permitir el acceso de aplicaciones menos seguras: SÍ.)
+
+- RefugioDeAnimales/settings.py: Añadir configuracion para email que servira para el envio de recuperacion de contraseñas. Modificar user y password.
+
+		EMAIL_USE_TLS = True
+		EMAIL_HOST = 'smtp.gmail.com'
+		EMAIL_PORT = 25
+		EMAIL_HOST_USER = 'pruebasmarcelamalaver@gmail.com'
+		EMAIL_HOST_PASSWORD = '*******'
+		EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+- RefugioDeAnimales/urls.py: Añadir path para recuperacion de contraseña. No olvidar: from django.contrib.auth.views import login, logout_then_login, password_reset, password_reset_confirm, password_reset_done, password_reset_complete.
+
+		#passwordResetPaths
+		path('reset/passwordReset', password_reset, kwargs={'template_name':'passwordReset/passwordResetForm.html','email_template_name': 'passwordReset/passwordResetEmail.html'}, name='password_reset'), 
+
+		path('reset/passwordResetDone', password_reset_done, kwargs={'template_name': 'passwordReset/passwordResetDone.html'}, name='password_reset_done'),
+
+		path('reset/<uidb64>[0-9A-Za-z_\-]/<token>', password_reset_confirm, kwargs={'template_name': 'passwordReset/passwordResetConfirm.html'}, name='password_reset_confirm'),
+
+		path('reset/done', password_reset_complete, kwargs={'template_name': 'passwordReset/passwordResetComplete.html'}, name='password_reset_complete'),
+
+- templates/index.html: Añadir url para recuperacion de contraseña. 
+
+		<a href="{% url 'password_reset' %}">Olvidé mi contraseña</a>
+
+- Añadir templates para recuperacion de contraseña. 
+
+		templates/passwordReset/passwordResetComplete.html
+		templates/passwordReset/passwordResetConfirm.html
+		templates/passwordReset/passwordResetDone.html
+		templates/passwordReset/passwordResetEmail.html
+		templates/passwordReset/passwordResetForm.html
+
+35) 
 # TIPOS DE RELACIONES EN DJANGO:
 
 ## Documentacion recomendada:

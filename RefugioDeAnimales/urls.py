@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.auth.views import login, logout_then_login
+from django.contrib.auth.views import login, logout_then_login, password_reset, password_reset_confirm, password_reset_done, password_reset_complete
 from django.urls import include,path
 
 urlpatterns = [
@@ -24,4 +24,13 @@ urlpatterns = [
     path('usuario/', include('apps.usuario.urls'),name="usuario"),
     path('accounts/login/',login,kwargs={'template_name': 'index.html'}, name="login"),
     path('logout/',logout_then_login, name="logout"),
+
+    #passwordResetPaths
+    path('reset/passwordReset', password_reset, kwargs={'template_name':'passwordReset/passwordResetForm.html','email_template_name': 'passwordReset/passwordResetEmail.html'}, name='password_reset'), 
+
+    path('reset/passwordResetDone', password_reset_done, kwargs={'template_name': 'passwordReset/passwordResetDone.html'}, name='password_reset_done'),
+
+    path('reset/<uidb64>[0-9A-Za-z_\-]/<token>', password_reset_confirm, kwargs={'template_name': 'passwordReset/passwordResetConfirm.html'}, name='password_reset_confirm'),
+
+    path('reset/done', password_reset_complete, kwargs={'template_name': 'passwordReset/passwordResetComplete.html'}, name='password_reset_complete'),
 ]
