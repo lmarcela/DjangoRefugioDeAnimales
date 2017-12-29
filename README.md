@@ -523,6 +523,22 @@ from django.contrib.auth.views import login, logout_then_login
 			lista = serializers.serialize('json', User.objects.all(), fields=['username', 'first_name'])
 			return HttpResponse(lista, content_type='application/json')
 
+36) Paginación en listar mascota.
+
+- apps/mascota/urls.py. Cambiar url para listar mascota:
+    	
+		path('listar2', login_required(MascotaList.as_view()), name='mascota_listar2'),
+
+- apps/mascota/views.py. Indicar cuantos registros mostrar por pagina en MascotaList. En este caso se indicaron 5:
+
+		class MascotaList(ListView):
+			model = Mascota
+			template_name = 'mascota/mascotaList2.html'
+			paginate_by = 5
+
+- templates/mascota/mascotaList2.html: Se configuraron 3 estilos de paginacion. El primero funciona con los botones previous y next. El segundo muestra first, previous, el numero de pagina actual, next y last. El tercero muestra first, numeros de pagina y last.
+
+
 # TIPOS DE RELACIONES EN DJANGO:
 
 ## Documentacion recomendada:
