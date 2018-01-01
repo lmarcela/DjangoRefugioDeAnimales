@@ -54,8 +54,7 @@ Esta aplicación consiste en poder dar de alta a las mascotas y socilitar adopci
 
 ### Vista de login (http://localhost:8000/accounts/login/ & http://localhost:8000)
 	
-![Vista de login 1](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/14.png)
-![Vista de login 2](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/15.png)
+![Vista de login](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/14.png)
 
 ### Vista de olvidar contraseña
 - http://localhost:8000/reset/passwordReset
