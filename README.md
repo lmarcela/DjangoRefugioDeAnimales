@@ -120,6 +120,7 @@ Esta aplicación consiste en poder dar de alta a las mascotas y socilitar adopci
 ## PASOS
 
 PASO 1) Seguir los pasos (1-10) para creacion de ambiente (test19) y activacion del mismo disponibles en README.md de https://github.com/lmarcela/DjangoFirstApp
+
 PASO 2) Empezar un proyecto en el ambiente:
 
 		E:\PYTHON\DJANGO\ambientes\test19\Scripts>activate
