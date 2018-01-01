@@ -1,7 +1,127 @@
-# PASOS
+# DjangoRefugioDeAnimales
 
-1) Seguir los pasos (1-10) para creacion de ambiente (test19) y activacion del mismo disponibles en README.md de https://github.com/lmarcela/DjangoFirstApp
-2) Empezar un proyecto en el ambiente:
+Esta aplicación consiste en poder dar de alta a las mascotas y socilitar adopcion. Diseñada con Python 3.6.4, Django 2.0, Djangorestframework 3.7.7, Mysqlclient 1.3.12. Algunas funciones son: registro de usuarios, recuperacion de contraseña, CRUD de mascota, CRUD de dos form (Persona y Solicitud) en uno, datos en formato json.
+
+## Vistas
+
+### Vista de registrar mascota (http://localhost:8000/mascota/nuevo/)
+	
+![Vista de registrar mascota](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/3.png)
+
+### Vista de listar mascota (http://localhost:8000/mascota/listar2)
+	
+![Vista de listar mascota](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/4.png)
+
+### Vista de editar mascota (http://localhost:8000/mascota/editar2/7/)
+	
+![Vista de editar mascota](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/10.png)
+
+### Vista de eliminar mascota (http://localhost:8000/mascota/eliminar2/7/)
+	
+![Vista de eliminar mascota](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/9.png)
+
+### Vista de registrar solicitud (http://localhost:8000/adopcion/solicitud/nueva)
+	
+![Vista de registrar solicitud](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/1.png)
+
+### Vista de listar solicitud (http://localhost:8000/adopcion/solicitud/listar)
+	
+![Vista de listar solicitud](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/2.png)
+
+### Vista de editar solicitud (http://localhost:8000/adopcion/solicitud/editar/2/)
+	
+![Vista de editar solicitud](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/11.png)
+
+### Vista de eliminar solicitud (http://localhost:8000/adopcion/solicitud/eliminar/2/)
+	
+![Vista de eliminar solicitud](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/12.png)
+
+### Vista de registrar usuario (http://localhost:8000/usuario/registrar/)
+	
+![Vista de registrar usuario](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/5.png)
+
+### Vista de listado de usuarios(http://localhost:8000/usuario/listado/)
+	
+![Vista de listado de usuarios](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/6.png)
+
+### Vista de UserAPI (http://localhost:8000/usuario/api/)
+	
+![Vista de UserAPI](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/7.png)
+
+### Vista de listado de mascotas (http://localhost:8000/mascota/listado/)
+	
+![Vista de listado de mascotas](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/8.png)
+
+### Vista de login (http://localhost:8000/accounts/login/ & http://localhost:8000)
+	
+![Vista de login 1](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/14.png)
+![Vista de login 2](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/15.png)
+
+### Vista de olvidar contraseña
+- http://localhost:8000/reset/passwordReset
+	
+![Vista de passwordReset](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/16.png)
+
+- http://localhost:8000/reset/passwordResetDone
+![Vista de passwordResetDone](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/17.png)
+
+- Bandeja de correo
+![Vista de Bandeja de correo](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/18.png)
+
+- Especificaciones correo recibido
+![Vista de Especificaciones correo recibido](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/19.png)
+
+- Correo recibido
+![Vista de Correo recibido](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/20.png)
+
+- Url del correo recibido (http://localhost:8000/reset/MQ%5B0-9A-Za-z_%5C-%5D/4sh-da9a0b2bf6adab59cd04)
+![Vista de Url del correo recibido](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/21.png)
+
+- http://localhost:8000/reset/done
+![Vista de reset/done](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/22.png)
+
+### Vista de Ir al Administrador de Django (http://localhost:8000/admin/login/?next=/admin/)
+	
+![Vista de Ir al Administrador de Django](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/23.png)
+
+### Vista del Administrador de Django (http://localhost:8000/admin/)
+	
+![Vista del Administrador de Django](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/24.png)
+
+### Vista del menu 
+- Mascotas
+	
+![Vista de Mascotas](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/25.png)
+
+- Adopciones
+![Vista de Adopciones](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/26.png)
+
+- Otros
+![Vista de Otros](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/27.png)
+
+- Salir / Cerrar sesión 
+	
+![Vista de Salir / Cerrar sesión](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/13.png)
+
+### Vista del menu en dispositivos móviles
+- Mascotas
+	
+![Vista de Mascotas](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/28.png)
+
+- Adopciones
+![Vista de Adopciones](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/29.png)
+
+- Otros
+![Vista de Otros](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/30.png)
+
+- Salir / Cerrar sesión 
+	
+![Vista de Salir / Cerrar sesión](https://github.com/lmarcela/DjangoRefugioDeAnimales/blob/master/static/img/README/31.png)
+
+## PASOS
+
+PASO 1) Seguir los pasos (1-10) para creacion de ambiente (test19) y activacion del mismo disponibles en README.md de https://github.com/lmarcela/DjangoFirstApp
+PASO 2) Empezar un proyecto en el ambiente:
 
 		E:\PYTHON\DJANGO\ambientes\test19\Scripts>activate
 		(test19) E:\PYTHON\DJANGO\ambientes\test19\Scripts>cd ..
@@ -14,23 +134,23 @@
 
 		(test19) E:\PYTHON\DJANGO\proyectos>django-admin.py startproject RefugioDeAnimales
 
-3) Explicacion de la configuracion del proyecto
+PASO 3) Explicacion de la configuracion del proyecto
 
 	- El archivo manage.py es el empaquetador del djangoadmin
 	- El archivo _init_ es el que indica que es un paquete de python
 	- Otros archivos son settings, urls y wsgi.
 
-4) Con el fin de organizar las aplicaciones se crea una carpeta llamada apps que contenga todas las aplicaciones. Para que la carpeta sea reconocida como un paquete de python dentro se crea el archivo init (_init_.py).
+PASO 4) Con el fin de organizar las aplicaciones se crea una carpeta llamada apps que contenga todas las aplicaciones. Para que la carpeta sea reconocida como un paquete de python dentro se crea el archivo init (_init_.py).
 
-5) Dentro de apps crear la app para mascota:
+PASO 5) Dentro de apps crear la app para mascota:
 
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales\apps>django-admin.py startapp mascota
 
-6) Dentro de apps crear la app para adopcion:
+PASO 6) Dentro de apps crear la app para adopcion:
 
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales\apps>django-admin.py startapp adopcion
 
-7) Para que las app sean reconocidas hay que modificar la variable INSTALLED_APPS de settings.py
+PASO 7) Para que las app sean reconocidas hay que modificar la variable INSTALLED_APPS de settings.py
 
 		INSTALLED_APPS = [
 			...
@@ -38,7 +158,7 @@
 			'apps.mascota',
 		]
 
-8) Para configurar la bd en settings.py:
+PASO 8) Para configurar la bd en settings.py:
 
 		DATABASES = {
 			'default': {
@@ -51,15 +171,15 @@
 			}
 		}
 
-9) Para configurar el lenguaje en settings.py:
+PASO 9) Para configurar el lenguaje en settings.py:
 	
 		LANGUAGE_CODE = 'es-co'
 
-10) Para migrar la bd se crea una bd vacia de nombre refugioDjango en mysql y luego se ejecuta el comando manage.py migrate:
+PASO 10) Para migrar la bd se crea una bd vacia de nombre refugioDjango en mysql y luego se ejecuta el comando manage.py migrate:
 	
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
 
-11) Los modelos se escriben en el archivo models.py de la app correspondiente. Para el modelo de mascota:
+PASO 11) Los modelos se escriben en el archivo models.py de la app correspondiente. Para el modelo de mascota:
 	
 			from django.db import models
 
@@ -91,25 +211,25 @@
     
 		folio = models.CharField(max_length=10,primary_key=True)
 
-12) Para hacer las migraciones de los modelos configurados se ejecuta el comando manage.py makemigrations en la raiz del proyecto:
+PASO 12) Para hacer las migraciones de los modelos configurados se ejecuta el comando manage.py makemigrations en la raiz del proyecto:
 	
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py makemigrations
 
-13) Para pasar la migracion a la bd se ejecuta el comando manage.py migrate
+PASO 13) Para pasar la migracion a la bd se ejecuta el comando manage.py migrate
 	
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
 
-14) En mysql crea 2 tablas con la sintaxis nombreApp_modelo:
+PASO 14) En mysql crea 2 tablas con la sintaxis nombreApp_modelo:
 	- adopcion_persona
 	- mascota_mascota
 
-15) Crear relacion de 1 (Persona) a N (Mascota). Luego hacer migracion:
+PASO 15) Crear relacion de 1 (Persona) a N (Mascota). Luego hacer migracion:
 
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py makemigrations
 
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
 
-16) Para poder manipular los modelos desde el administrador de django:
+PASO 16) Para poder manipular los modelos desde el administrador de django:
 	- se configura el archivo admin.py de cada app de la forma admin.site.register(NombreDelModelo)
 	- Crear un superusuario: manage.py createsuperuser 
 		
@@ -121,7 +241,7 @@
 
 	- Acceso a http://localhost:8000/admin con los datos del usuario creado. Probar el registro de una persona, una mascota, una vacuna desde el administrador de django. Si por ejemplo se elimina una mascota automaticamente se borra la relacion que tenia con vacuna.
 
-17) Modificacion en el modelo Mascota:
+PASO 17) Modificacion en el modelo Mascota:
 	- Se borro la llave primaria para que funcione con la de defecto. 
 	- Se añade el parametro blank en la relacion a Vacuna
 		
@@ -140,12 +260,12 @@
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py makemigrations
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py migrate
 
-18) Volver a Crear un superusuario: manage.py createsuperuser 
+PASO 18) Volver a Crear un superusuario: manage.py createsuperuser 
 		
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py createsuperuser 
 			NOTA user: marcela; password: abcdmarcela.
 
-19) Importar los modelos. Abrir el shell de django: manage.py shell
+PASO 19) Importar los modelos. Abrir el shell de django: manage.py shell
 
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>manage.py shell
 
@@ -159,6 +279,7 @@
 
 >>Persona.objects.create(nombre="Lina", apellidos="Gomez", edad=34, telefono="867", email="lina@mail.com", domicilio = "cra 867")
 
+/*La segunda forma de crear un objeto*/
 >>p = Persona(nombre="Marcela", apellidos="Malaver", edad=22, telefono="878", email="marce@mail.com", domicilio = "cra 69")
 >>p.save()
 
@@ -196,14 +317,14 @@ Respuesta: <QuerySet [<Persona: Persona object (2)>]>
 
 Respuesta: <QuerySet [<Persona: Persona object (1)>]>
 
-20) Configurar url y views de las apps. 
+PASO 20) Configurar url y views de las apps. 
 - Modificar archivo views.py de cada app. Por ahora cada una solamente imprime un texto.
 - Crear archivo urls.py para cada app. Aqui se define la configuracion local.
 - Modificar archivo urls.py del proyecto. Aqui se define la configuracion global.
 Nuevas url de acceso:
 http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 
-21) Definir el template en la variable TEMPLATES de settings.py:
+PASO 21) Definir el template en la variable TEMPLATES de settings.py:
 
 		TEMPLATES = [
 			{
@@ -216,19 +337,19 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 
 	Se recomienda ver la seccion SISTEMA DE PLANTILLAS DE DJANGO.
 
-22) Herencia de templates de django.
+PASO 22) Herencia de templates de django.
 - Crear carpeta "templates" en la base del proyecto. Dentro crear la carpeta "base". Dentro de "base" crear el archivo "base.html". En este archivo se definen bloques que pueden modificarse dentro de otros html. Para demostracion de los include se realizo un include de "header.html" en "base.html".
 - Para los templates de la app mascota se creo una carpeta llamada "mascota" dentro de la carpeta "templates". Dentro se hizo la prueba de sobreescribir ciertos bloques.
 - Se modifico el archivo views.py de mascota para poder mostrar el html de "index.html". (render(request,'mascota/index.html'))
 
-23) Configurar archivos estaticos del proyecto:
+PASO 23) Configurar archivos estaticos del proyecto:
 - carpeta "static" contiene js y css.
 - Referencia a carpeta static en settings.py: 
 	
 		STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 - Nuevo html para uso de plantilla bootstrap https://bootswatch.com/flatly/ en base.html e index.html (de mascota). css y js de la carpeta static añadidos en base.html.
 
-24) Formulario de crear mascota:
+PASO 24) Formulario de crear mascota:
 - configuracion de apps/mascota/urls.py: 
 	
 		path('nuevo/', mascota_view, name='mascota_crear'),
@@ -270,7 +391,7 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 		def __str__(self):
 			return '{}'.format(self.nombre)
 
-25) Listar registros de Mascota (vista basada en funciones):
+PASO 25) Listar registros de Mascota (vista basada en funciones):
 - configuracion de templates/mascota/mascotaList.html: uso de variables, bloques if, else, for.
 - configuracion de apps/mascota/views.py: 
 
@@ -283,7 +404,7 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 
     	path('listar/', mascota_list, name='mascota_listar'),
 
-26) Actualizar y eliminar registros de Mascota (vista basada en funciones):
+PASO 26) Actualizar y eliminar registros de Mascota (vista basada en funciones):
 - configuracion de templates/mascota/mascotaDelete.html: uso de variables.
 - configuracion de templates/mascota/mascotaList.html: Adicion de acciones editar y eliminar.
 - configuracion de apps/mascota/views.py: 
@@ -311,7 +432,7 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
 		path('editar/<id_mascota>/', mascota_edit, name='mascota_editar'),
 		path('eliminar/<id_mascota>/', mascota_delete, name='mascota_eliminar'),
 
-27) App Mascota. Vistas basadas en clases (ListView & CreateView):
+PASO 27) App Mascota. Vistas basadas en clases (ListView & CreateView):
 - configuracion de templates/mascota/mascotaList2.html: Modificacion con respecto a mascotaList.html por la obtencion de datos a traves de la clase.
 - configuracion de apps/mascota/views.py: ListView & CreateView
 
@@ -330,7 +451,7 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
     	path('nuevo2/', MascotaCreate.as_view(), name='mascota_crear2'),
     	path('listar2/', MascotaList.as_view(), name='mascota_listar2'),
 
-28) App Mascota. Vistas basadas en clases (UpdateView & DeleteView):
+PASO 28) App Mascota. Vistas basadas en clases (UpdateView & DeleteView):
 - configuracion de templates/mascota/mascotaList2.html: Modificacion con respecto a mascotaList.html por la obtencion de datos a traves de la clase.
 - configuracion de templates/mascota/mascotaDelete2.html: Modificacion con respecto a mascotaDelete.html por la obtencion de datos a traves de la clase.
 - configuracion de apps/mascota/views.py: UpdateView & DeleteVie
@@ -351,7 +472,7 @@ http://localhost:8000/mascota/, http://localhost:8000/adopcion/index/
     	path('editar2/<pk>/', MascotaUpdate.as_view(), name='mascota_editar2'),,
     	path('eliminar2/<pk>/', MascotaDelete.as_view(), name='mascota_eliminar2'),
 
-29) CRUD con dos formularios. Primera parte (List & Create):
+PASO 29) CRUD con dos formularios. Primera parte (List & Create):
 - Class Solicitud en apps/adopcion/models.py:
 
 		class Solicitud(models.Model):
@@ -380,7 +501,7 @@ Accesos a:
 - Configuracion de apps/adopcion/views.py: SolicitudList & SolicitudCreate
 - Configuracion de templates/adopcion: solicitudForm.html & solicitudList.html
 
-30) CRUD con dos formularios. Segunda parte (Update & Delete):
+PASO 30) CRUD con dos formularios. Segunda parte (Update & Delete):
 - Configuracion de apps/adopcion/urls.py:
 
 		path('solicitud/editar/<pk>/', SolicitudUpdate.as_view(), name='solicitud_editar'),
@@ -394,7 +515,7 @@ Accesos a:
 - Configuracion de apps/adopcion/views.py: SolicitudUpdate & SolicitudDelete
 - Configuracion de templates/adopcion: solicitudDelete.html
 
-31) Nueva app Usuarios. Crear Registro de usuarios.
+PASO 31) Nueva app Usuarios. Crear Registro de usuarios.
 - Dentro de apps crear la app para usuario:django-admin.py startapp usuario
 
  		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales\apps>django-admin.py startapp usuario
@@ -420,7 +541,7 @@ Accesos a:
 
 - Configuracion de templates/usuario/usuarioRegistrar.html
 
-32) Crear Login:
+PASO 32) Crear Login:
 - Configuracion de RefugioDeAnimales/urls.py. No olvidar from django.contrib.auth.views import login
 
 	    path('',login,kwargs={'template_name': 'index.html'}, name="login"),
@@ -430,7 +551,7 @@ Accesos a:
 		LOGIN_REDIRECT_URL = reverse_lazy('solicitud_listar')
 - Configuracion de templates/index.html. Formulario de inicio de sesión.
 
-33) Restriccion de urls para usuarios no logueados. Adicion de funcionalidades al menú:
+PASO 33) Restriccion de urls para usuarios no logueados. Adicion de funcionalidades al menú:
 - Modificacion en RefugioDeAnimales/urls.py. No olvidar 
 from django.contrib.auth.views import login, logout_then_login
 
@@ -469,7 +590,7 @@ from django.contrib.auth.views import login, logout_then_login
 		<a class="dropdown-item" href="{% url 'solicitud_listar' %}">Listar solicitudes</a>
 		<a class="dropdown-item" href="{% url 'logout' %}">Salir</a>
 
-34) Recuperar contraseña por correo.
+PASO 34) Recuperar contraseña por correo.
 - En el correo de gmail activar el acceso de aplicaciones menos seguras en: https://myaccount.google.com/security (Permitir el acceso de aplicaciones menos seguras: SÍ.)
 
 - RefugioDeAnimales/settings.py: Añadir configuracion para email que servira para el envio de recuperacion de contraseñas. Modificar user y password.
@@ -504,7 +625,7 @@ from django.contrib.auth.views import login, logout_then_login
 		templates/passwordReset/passwordResetEmail.html
 		templates/passwordReset/passwordResetForm.html
 
-35) Serializar objetos de los modelos para posteriormente poder utilizarlos como servicio web:
+PASO 35) Serializar objetos de los modelos para posteriormente poder utilizarlos como servicio web:
 - apps/mascota/views.py: No olvidar from django.core import serializers:
 
 		def listado(request):
@@ -523,7 +644,7 @@ from django.contrib.auth.views import login, logout_then_login
 			lista = serializers.serialize('json', User.objects.all(), fields=['username', 'first_name'])
 			return HttpResponse(lista, content_type='application/json')
 
-36) Paginación en listar mascota.
+PASO 36) Paginación en listar mascota.
 
 - apps/mascota/urls.py. Cambiar url para listar mascota:
     	
@@ -538,7 +659,7 @@ from django.contrib.auth.views import login, logout_then_login
 
 - templates/mascota/mascotaList2.html: Se configuraron 3 estilos de paginacion. El primero funciona con los botones previous y next. El segundo muestra first, previous, el numero de pagina actual, next y last. El tercero muestra first, numeros de pagina y last.
 
-37) Uso de Django Restframework (ModelSerializer -  Django Restframework es un paquete que facilita la creacion de APIs):
+PASO 37) Uso de Django Restframework (ModelSerializer -  Django Restframework es un paquete que facilita la creacion de APIs):
 - Instalar Django Restframework: pip install djangorestframework
 		
 		(test19) E:\PYTHON\DJANGO\proyectos\RefugioDeAnimales>pip install djangorestframework
@@ -575,7 +696,7 @@ Código:
 				model = User
 				fields = ('first_name', 'email')
 
-38) Modificaciones adicionales:
+PASO 38) Modificaciones adicionales:
 - RefugioDeAnimales/urls.py. Añadir:  
     
 		path('',login,kwargs={'template_name': 'index.html'}, name="login"),
@@ -594,19 +715,20 @@ Código:
 		<a href="http://{{ request.get_host }}/admin">Ir al Administrador de Django</a>
 		<br>
 		<a href="{% url 'usuario_registrar' %}">Ir a Registrar usuario</a>
-		
-# LINKS RECOMENDADOS:
+
+## LINKS RECOMENDADOS:
 - paginación: https://docs.djangoproject.com/en/2.0/topics/pagination/
 - Django Restframework: http://www.django-rest-framework.org
+- Tutorial Django: https://codigofacilito.com/cursos/django
 
-# TIPOS DE RELACIONES EN DJANGO:
+## TIPOS DE RELACIONES EN DJANGO:
 
-## Documentacion recomendada:
+### Documentacion recomendada:
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/many_to_many/
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/one_to_one/
 - https://docs.djangoproject.com/en/2.0/topics/db/examples/many_to_one/
 
-## Tipos
+### Tipos
 - 1 A N: (1 persona puede adoptar mas de una mascota)
 	class Persona(models.Model):
 		atributos...
@@ -631,16 +753,27 @@ Código:
 		vacuna = models.ManyToManyField(Vacuna)
 		atributos...
 
-# SISTEMA DE PLANTILLAS DE DJANGO
+## SISTEMA DE PLANTILLAS DE DJANGO
 
 El sistema de plantillas de django permite separar la logica de la aplicacion de la parte visual (html). Provee 3 herramientas:
 - Variables: Encerradas entre llaves dobles ({{}}). El contexto es la informacion enviada por la vista al template en forma de un diccionario.
 - Tags (etiquetas): Se encuentran cerrados entre llaves y signos de porcentaje ({% for xxx in yyy %}). Permite: hacer flujos de control (bucle for, sentencia if) de informacion externa del template, cargar archivos estaticos en el template ( {% load staticfiles %} ).
 - Herencia de plantillas: Reduce la duplicacion y redundancia de elementos comunes de los templates como title, header, navbar, footer. Lo que se hace es crear un archivo base que va a contener a todos y en otros templates poder heredarlos con extends. Estos se definen en la variable TEMPLATES de settings.py. Se modifica el DIRS.
 
-# GIT COMMANDS:
+## DJANGO COMMANDS:
+- Empezar proyecto: django-admin.py startproject RefugioDeAnimales
+- Empezar app: django-admin.py startapp mascota
+- Migrar BD: manage.py migrate
+- Migración de los modelos: manage.py makemigrations
+- Crear un superusuario: manage.py createsuperuser
+- Correr el servidor: manage.py runserver
+- Abrir el shell de django: manage.py shell
+- Instalar Django Restframework: pip install djangorestframework
+
+## GIT COMMANDS:
 		git init
 		git add .
 		git commit -m "first commit"
 		git remote add origin https://github.com/lmarcela/DjangoRefugioDeAnimales.git
 		git push -u origin master
+

@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %} {% block content %}
 <br>
+<h1>Listado de solicitudes</h1>
 <table class="table table-hover">
         <thead>
                 <tr>
@@ -19,8 +20,8 @@
                         <td>{{solicitud.numero_mascotas}}</td>
                         <td>{{solicitud.razones}}</td>
                         <td>
-                                        <a href="#" class="btn btn-primary">Editar</a>
-                                        <a href="#" class="btn btn-danger">Eliminar</a>
+                                        <a href="{% url 'solicitud_editar' solicitud.id %}" class="btn btn-primary">Editar</a>
+                                        <a href="{% url 'solicitud_eliminar' solicitud.id %}" class="btn btn-danger">Eliminar</a>
                         </td>
                 </tr>
                 {% endfor %}
