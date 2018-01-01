@@ -2,6 +2,35 @@
 
 Esta aplicación consiste en poder dar de alta a las mascotas y socilitar adopcion. Diseñada con Python 3.6.4, Django 2.0, Djangorestframework 3.7.7, Mysqlclient 1.3.12. Algunas funciones son: registro de usuarios, recuperacion de contraseña, CRUD de mascota, CRUD de dos form (Persona y Solicitud) en uno, datos en formato json.
 
+Secciones del README:
+
+1. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#vistas">Vistas del proyecto</a>
+- Vista de registrar mascota (http://localhost:8000/mascota/nuevo/)
+- Vista de listar mascota (http://localhost:8000/mascota/listar2)
+- Vista de editar mascota (http://localhost:8000/mascota/editar2/7/)
+- Vista de eliminar mascota (http://localhost:8000/mascota/eliminar2/7/)
+- Vista de registrar solicitud (http://localhost:8000/adopcion/solicitud/nueva)
+- Vista de listar solicitud (http://localhost:8000/adopcion/solicitud/listar)
+- Vista de editar solicitud (http://localhost:8000/adopcion/solicitud/editar/2/)
+- Vista de eliminar solicitud (http://localhost:8000/adopcion/solicitud/eliminar/2/)
+- Vista de registrar usuario (http://localhost:8000/usuario/registrar/)
+- Vista de listado de usuarios(http://localhost:8000/usuario/listado/)
+- Vista de UserAPI (http://localhost:8000/usuario/api/)
+- Vista de listado de mascotas (http://localhost:8000/mascota/listado/)
+- Vista de login (http://localhost:8000/accounts/login/ & http://localhost:8000)
+- Vista de olvidar contraseña
+- Vista de Ir al Administrador de Django (http://localhost:8000/admin/login/?next=/admin/)
+- Vista del Administrador de Django (http://localhost:8000/admin/)
+- Vista del menu
+- Vista del menu en dispositivos móviles
+
+2. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#pasos">Pasos de elaboración del proyecto</a>
+3. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#links-recomendados">LINKS RECOMENDADOS</a>
+4. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#tipos-de-relaciones-en-django">TIPOS DE RELACIONES EN DJANGO</a>
+5. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#sistema-de-plantillas-de-django">SISTEMA DE PLANTILLAS DE DJANGO</a>
+6. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#django-commands">DJANGO COMMANDS</a>
+7. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#git-commands">GIT COMMANDS</a>
+
 ## Vistas
 
 ### Vista de registrar mascota (http://localhost:8000/mascota/nuevo/)
