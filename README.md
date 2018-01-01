@@ -4,14 +4,13 @@ Esta aplicación consiste en poder dar de alta a las mascotas y socilitar adopci
 
 Secciones del README:
 
-1. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#vistas">Vistas del proyecto</a>: registrar mascota, listar mascota, editar mascota, eliminar mascota, registrar solicitud, listar solicitud, editar solicitud, eliminar solicitud, registrar usuario, listado de usuarios, UserAPI, listado de mascotas, login, olvidar contraseña, Ir al Administrador de Django, Administrador de Django, menu y menu en dispositivos móviles.
-
-2. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#pasos">Pasos de elaboración del proyecto</a>
-3. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#links-recomendados">LINKS RECOMENDADOS</a>
-4. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#tipos-de-relaciones-en-django">TIPOS DE RELACIONES EN DJANGO</a>
-5. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#sistema-de-plantillas-de-django">SISTEMA DE PLANTILLAS DE DJANGO</a>
-6. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#django-commands">DJANGO COMMANDS</a>
-7. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#git-commands">GIT COMMANDS</a>
+- <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#vistas">Vistas del proyecto</a>: registrar mascota, listar mascota, editar mascota, eliminar mascota, registrar solicitud, listar solicitud, editar solicitud, eliminar solicitud, registrar usuario, listado de usuarios, UserAPI, listado de mascotas, login, olvidar contraseña, Ir al Administrador de Django, Administrador de Django, menu y menu en dispositivos móviles.
+- <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#pasos">Pasos de elaboración del proyecto</a>
+- <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#links-recomendados">LINKS RECOMENDADOS</a>
+- <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#tipos-de-relaciones-en-django">TIPOS DE RELACIONES EN DJANGO</a>
+- <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#sistema-de-plantillas-de-django">SISTEMA DE PLANTILLAS DE DJANGO</a>
+- <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#django-commands">DJANGO COMMANDS</a>
+- <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#git-commands">GIT COMMANDS</a>
 
 ## Vistas
 
