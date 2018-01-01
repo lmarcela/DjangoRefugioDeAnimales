@@ -4,25 +4,7 @@ Esta aplicación consiste en poder dar de alta a las mascotas y socilitar adopci
 
 Secciones del README:
 
-1. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#vistas">Vistas del proyecto</a>
-- Vista de registrar mascota (http://localhost:8000/mascota/nuevo/)
-- Vista de listar mascota (http://localhost:8000/mascota/listar2)
-- Vista de editar mascota (http://localhost:8000/mascota/editar2/7/)
-- Vista de eliminar mascota (http://localhost:8000/mascota/eliminar2/7/)
-- Vista de registrar solicitud (http://localhost:8000/adopcion/solicitud/nueva)
-- Vista de listar solicitud (http://localhost:8000/adopcion/solicitud/listar)
-- Vista de editar solicitud (http://localhost:8000/adopcion/solicitud/editar/2/)
-- Vista de eliminar solicitud (http://localhost:8000/adopcion/solicitud/eliminar/2/)
-- Vista de registrar usuario (http://localhost:8000/usuario/registrar/)
-- Vista de listado de usuarios(http://localhost:8000/usuario/listado/)
-- Vista de UserAPI (http://localhost:8000/usuario/api/)
-- Vista de listado de mascotas (http://localhost:8000/mascota/listado/)
-- Vista de login (http://localhost:8000/accounts/login/ & http://localhost:8000)
-- Vista de olvidar contraseña
-- Vista de Ir al Administrador de Django (http://localhost:8000/admin/login/?next=/admin/)
-- Vista del Administrador de Django (http://localhost:8000/admin/)
-- Vista del menu
-- Vista del menu en dispositivos móviles
+1. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#vistas">Vistas del proyecto</a>: registrar mascota, listar mascota, editar mascota, eliminar mascota, registrar solicitud, listar solicitud, editar solicitud, eliminar solicitud, registrar usuario, listado de usuarios, UserAPI, listado de mascotas, login, olvidar contraseña, Ir al Administrador de Django, Administrador de Django, menu y menu en dispositivos móviles.
 
 2. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#pasos">Pasos de elaboración del proyecto</a>
 3. <a href="https://github.com/lmarcela/DjangoRefugioDeAnimales#links-recomendados">LINKS RECOMENDADOS</a>
